@@ -17,7 +17,7 @@
         <h2> List of vehicles </h2>
         <ul>
             <% for(let vehicle of vehicleList){%>
-            <a href="/dashboard/vehicle_location/<%=vehicle._id.toString()%>">
+            <a href="/dashboard/set_location/<%=vehicle._id.toString()%>">
                 <li><%=vehicle.vehicleNumber%></li>
             </a>
             <%}%>

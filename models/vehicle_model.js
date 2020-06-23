@@ -11,17 +11,17 @@ class Vehicle {
         this.longitude = longitude;
     }
 
-    saveVehicle() {
-        const db = getDb();
+    // saveVehicle() {
+    //     const db = getDb();
 
-        return db.collection("vehicles").insertOne(this).then((result) => {
-            console.log(result);
-            return result;
-            //here equate the object id
-        }).catch((err) => {
-            console.log(err);
-        });
-    }
+    //     return db.collection("vehicles").insertOne(this).then((result) => {
+    //         console.log(result);
+    //         return result;
+    //         //here equate the object id
+    //     }).catch((err) => {
+    //         console.log(err);
+    //     });
+    // }
 
     static fetchLocation(vehicleId) {
         const db = getDb();
@@ -36,7 +36,7 @@ class Vehicle {
 
     static updateLocation(vehicleId, newLatittude, newLongitude) {
         const db = getDb();
-        return db.collection("vehicles").updateOne({ _id: vehicleId }, { $set: { latitude: newLatittude, longitude: newLongitude } }).then((result) => {
+        return db.collection("vehicles").updateOne({ _id: new objectId(vehicleId) }, { $set: { latitude: newLatittude, longitude: newLongitude } }).then((result) => {
             console.log(result);
         }).catch((err) => {
             console.log(err);
